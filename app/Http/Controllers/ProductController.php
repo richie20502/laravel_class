@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return "lista de index";
+        return view("products.index");
     }
 
     /**
@@ -24,7 +24,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return "create de create";
+        return view("products.create");
     }
 
     /**
@@ -46,7 +46,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return  "ver el show  {$product}";
+        return  view("products.show");
     }
 
     /**
@@ -57,7 +57,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return "ver el edit {$product}";
+        return view("products.edit");
     }
 
     /**
@@ -80,6 +80,6 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        return "ver el destroy";
+        return view("products.destroy");
     }
 }
