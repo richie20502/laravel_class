@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\Products as Product;
 use Illuminate\Http\Request;
+
 
 class ProductController extends Controller
 {
@@ -14,6 +15,30 @@ class ProductController extends Controller
      */
     public function index()
     {
+        dump("aqui");
+
+        $sql = "select * from products";
+        $productAll = Product::all();
+        #dd($productAll);
+
+        $pro = Product::where('name','P1')->first();
+        #dd($pro);
+
+        dump($pro->id);
+        dump($pro->name);
+        dump($pro->price);
+        dump($pro->created_at);
+
+        dd();
+
+
+        /*
+        foreach($pro as $p){
+            dump($p->name);
+        }
+        */
+
+
         return view("products.index");
     }
 
@@ -24,7 +49,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view("products.create");
+        return view('products_dos.create');
     }
 
     /**
@@ -35,7 +60,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        return "ver el store";
+        //
     }
 
     /**
@@ -46,7 +71,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return  view("products.show");
+        //
     }
 
     /**
@@ -57,7 +82,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view("products.edit");
+        //
     }
 
     /**
@@ -69,7 +94,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        return "ver el update";
+        //
     }
 
     /**
@@ -80,6 +105,6 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        return view("products.destroy");
+        //
     }
 }

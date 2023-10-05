@@ -10,10 +10,10 @@ class Products extends Model
     use HasFactory;
 
     #esta es la variable que hace referecía a una tabla
-    protected $table ='moodle_product';
+    protected $table ='product';
 
     #esta es la variable que indica la llave primaría
-    protected $primaryKey = 'id';
+    #protected $primaryKey = 'id';
 
     #hace referencia a created_at y updated_at
     public $timestamps = true;
@@ -24,7 +24,7 @@ class Products extends Model
     ];
 
     #oculta columnas del modelo
-    protected $hidden = ['created_at','updated_at'];
+    #protected $hidden = ['created_at','updated_at'];
 
 
 
