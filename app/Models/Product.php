@@ -16,7 +16,7 @@ class Product extends Model
     protected $primaryKey = "id";
 
     #para los campos created_at y updated_at
-    public $timestamps = true;
+    public $timestamps = false;
 
     #columnas existentes dentro de tu tabla
     protected $fillable = ['name','description','price','stock'];

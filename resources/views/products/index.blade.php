@@ -12,5 +12,14 @@
 <body>
     <h1>index ya con boostrap</h1>
 
+
+    @foreach ($products as $product)
+    <!-- Mostrar información del producto -->
+        {{ $product->id }}
+    @endforeach
+
+    <!-- Mostrar enlaces de paginación -->
+    {{ $products->links() }}
+
 </body>
 </html>
