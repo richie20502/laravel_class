@@ -1,25 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/jquery-3.7.1.min.js') }}" ></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <title>Productos</title>
-</head>
-<body>
-    <h1>index ya con boostrap</h1>
-
-
-    @foreach ($products as $product)
-    <!-- Mostrar información del producto -->
-        {{ $product->id }}
-    @endforeach
-
-    <!-- Mostrar enlaces de paginación -->
+@extends('layouts.layout')
+@section('content')
+<div class="container">
+    <h2>Lista de Productos</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <body>
+            @foreach ( $products as $product )
+                <tr>
+                    <td>{{ $product->name }}</td>
+                    <td>{{ $product->description }}</td>
+                    <td>${{ $product->price }}</td>
+                    <td>
+                        <a href="{{ route('products.edit', $product->id) }}"  class="btn btn-primary">Editar</a>
+                    </td>
+                </tr>
+            @endforeach
+        </body>
+    </table>
     {{ $products->links() }}
+</div>
 
-</body>
-</html>
+
+@endsection

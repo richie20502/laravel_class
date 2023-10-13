@@ -14,18 +14,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-
-        dump("entra a la funcion index1 ");
-        #dd("entra a la funcion index2");
+        $products = Pro::paginate(5);
 
 
-        $produ  = Pro::where('id',20)->first();
-
-        dd($produ);
-
-
-
-        dd();
+        return view('products.index', compact('products'));
     }
 
     /**
@@ -35,7 +27,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create');
     }
 
     /**
@@ -46,7 +38,37 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        try {
+            $validateData = $request->validate([
+                'name' =>  'required|string|max:50',
+                'description'  =>  'required|string|min:10|max:20',
+                'price'  =>  'required|numeric|min:0|max:250',
+                'stock'  => 'required|numeric|min:0|max:250',
+            ]);
+            Pro::create([
+                'name' =>  $request->name,
+                'description'  =>  $request->description,
+                'price'  =>  $request->price,
+                'stock'  =>  $request->stock,
+            ]);
+        } catch (Throwable $e) {
+
+
+            dd($e);
+
+            return false;
+        }
+
+
+
+
+        //Pro::create($request->all());  // decestrcuturacion
+
+
+        return redirect()->route('products.create');
+
+
     }
 
     /**
@@ -68,7 +90,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $pro = Pro::find($id);
+        return view('products.update', compact('pro'));
     }
 
     /**
@@ -78,9 +102,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
@@ -91,6 +115,6 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd("entra a destroy $id");
     }
 }

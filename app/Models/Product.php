@@ -13,10 +13,10 @@ class Product extends Model
     protected $table = "product";
 
     #especifica la llave primaria de la tabla
-    protected $primaryKey = "id";
+    #protected $primaryKey = "id_prod";
 
     #para los campos created_at y updated_at
-    public $timestamps = false;
+    #public $timestamps = false;
 
     #columnas existentes dentro de tu tabla
     protected $fillable = ['name','description','price','stock'];

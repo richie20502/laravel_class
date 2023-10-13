@@ -2,33 +2,34 @@
 @section('content')
 
 <div class="container">
+    <h2> Update Producto </h2>
 
-
-    {{ Form::open(['route' => 'products.store' ,'method' =>'POST']) }}
+    {{ Form::open(['route' => 'products.update' ,'method' =>'POST']) }}
+        <input type='hidden' value="{{$pro->id}}" name='id'>
         <div class="form-group">
             {{ Form::label('name_product', 'nombre del producto') }}
-            {{ Form::text('name',null,['class' => 'form-control']) }}
+            {{ Form::text('name',$pro->name,['class' => 'form-control']) }}
             @error('name')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
         <div class="form-group">
             {{ Form::label('description_product', 'Descripción producto') }}
-            {{ Form::textarea('description', null, ['class'=>'form-control','rows' => 6]) }}
+            {{ Form::textarea('description', $pro->description, ['class'=>'form-control','rows' => 6]) }}
             @error('description')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
         <div class="form-group">
             {{ Form::label('price', 'Precio del producto') }}
-            {{ Form::number('price', null, ['class' => 'form-control']) }}
+            {{ Form::number('price', $pro->price, ['class' => 'form-control']) }}
             @error('price')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
         <div class="form-group">
             {{ Form::label('stock', 'Productos disponibles') }}
-            {{ Form::number('stock', null, ['class' => 'form-control']) }}
+            {{ Form::number('stock', $pro->stock, ['class' => 'form-control']) }}
             @error('stock')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
