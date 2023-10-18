@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product as Pro;
+use App\Models\Post;
 
 class ProductController extends Controller
 {
@@ -102,8 +103,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
+
+        dd($id);
         dd($request->all());
     }
 
@@ -117,4 +120,15 @@ class ProductController extends Controller
     {
         dd("entra a destroy $id");
     }
+
+
+    public function pruebaPost(){
+        $post = Post::find(1);
+
+        $comments = $post->comments;
+
+        dd($comments);
+
+    }
+    
 }

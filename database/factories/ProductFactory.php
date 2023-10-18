@@ -21,7 +21,7 @@ class ProductFactory extends Factory
             'name' => $this->faker->word,
             'description' => $this->faker->sentence,
             'price' => $this->faker->randomFloat(2, 10, 100),
-            'stock' => $this->faker->numberBetween(0, 100), un
+            'stock' => $this->faker->numberBetween(0, 100),
         ];
     }
 }

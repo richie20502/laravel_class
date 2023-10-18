@@ -23,10 +23,16 @@ Route::get('/', function () {
 Route::get('products/list', [ProductController::class, 'index'])->name('products.index');
 Route::get('product/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('products/guardar',[ProductController::class, 'store'])->name('products.store');
-Route::post('products/update',[ProductController::class, 'update'])->name('products.update');
+Route::post('/products/{id}/update',[ProductController::class, 'update'])->name('products.update');
 
 
 
-Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
-Route::get('/products/{id}/destroy', [ProductController::class, 'destroy'])->name('products.destroy');
+Route::get('products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::get('products/{id}/destroy', [ProductController::class, 'destroy'])->name('products.destroy');
+
+
+Route::get('prueba/post', [ProductController::class, 'pruebaPost'])->name('products.destroy');
+
+
+
 
