@@ -6,6 +6,7 @@
 
     {{ Form::model($pro, ['route' => ['products.update', $pro->id], 'method' => 'POST']) }}
         <div class="form-group">
+            <input type="text" value="{{$pro->id}}" name='id'>
             {{ Form::label('name_product', 'nombre del producto') }}
             {{ Form::text('name',$pro->name,['class' => 'form-control']) }}
             @error('name')

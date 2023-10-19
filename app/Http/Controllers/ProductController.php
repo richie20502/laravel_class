@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product as Pro;
 use App\Models\Post;
+use App\Models\Comment;
 
 class ProductController extends Controller
 {
@@ -16,7 +17,6 @@ class ProductController extends Controller
     public function index()
     {
         $products = Pro::paginate(5);
-
 
         return view('products.index', compact('products'));
     }
@@ -106,8 +106,20 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
 
-        dd($id);
-        dd($request->all());
+        //dd($id);
+        //dump($request->all());
+        $prod = Pro::find($id);
+        $prod2 = Pro::where('id',$id)->get();
+        //dump($prod);
+        //dd($prod2);
+
+        $prod->name = $request->name;
+        $prod->description = $request->description;
+        $prod->price = $request->price;
+        $prod->stock = $request->stock;
+        $prod->save();
+
+        return $this->index();
     }
 
     /**
@@ -130,5 +142,21 @@ class ProductController extends Controller
         dd($comments);
 
     }
-    
+
+    public function postfind(){
+        $post = Post::find(1);
+        //dump($post);
+        //dd($post->comments);
+
+        //$coments = Comment::where('post_id',1)->get();
+        //dd($coments);
+
+        return $this->index();
+    }
+
+
+
+
+
+
 }

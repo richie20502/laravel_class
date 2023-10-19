@@ -9,13 +9,10 @@ class Comment extends Model
 {
     use HasFactory;
 
-    //protected $table = "comments";
+    protected $fillable = ['content'];
 
-    protected $fillable = [
-        'content'
-    ];
-
-    public function post(){
-        return  $this->belongsTo(Post::class);
+    public function post()
+    {
+        return $this->belongsTo(Post::class);
     }
 }

@@ -35,4 +35,6 @@ Route::get('prueba/post', [ProductController::class, 'pruebaPost'])->name('produ
 
 
 
+Route::get('postfind',[ProductController::class, 'postfind']);
+
 
