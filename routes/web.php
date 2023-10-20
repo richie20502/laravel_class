@@ -38,3 +38,15 @@ Route::get('prueba/post', [ProductController::class, 'pruebaPost'])->name('produ
 Route::get('postfind',[ProductController::class, 'postfind']);
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
