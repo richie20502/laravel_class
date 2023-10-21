@@ -91,7 +91,12 @@ class ProductController extends Controller
     public function edit($id)
     {
 
-        $pro = Pro::find($id);
+        $pro = Pro::find($id); //select * from products where id = 1
+        $p = Pro::Where('id', $id)->get();
+        //dump($pro);
+        //dd($p);
+
+
         return view('products.update', compact('pro'));
     }
 

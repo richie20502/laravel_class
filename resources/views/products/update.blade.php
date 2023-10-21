@@ -5,7 +5,6 @@
     <h2> Update Producto </h2>
 
     {{ Form::open(['route' => 'products.update' ,'method' =>'POST']) }}
-        <input type='hidden' value="{{$pro->id}}" name='id'>
         <div class="form-group">
             {{ Form::label('name_product', 'nombre del producto') }}
             {{ Form::text('name',$pro->name,['class' => 'form-control']) }}
