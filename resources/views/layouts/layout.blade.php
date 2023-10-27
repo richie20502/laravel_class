@@ -11,7 +11,9 @@
     <title>Productos</title>
 </head>
 <body>
-    @yield('content')
-
+    @include('sweetalert::alert')
+    <main class="py-4">
+        @yield('content')
+    </main>
 </body>
 </html>

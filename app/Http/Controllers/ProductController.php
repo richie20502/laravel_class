@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product as Pro;
+Use Alert;
 
 class ProductController extends Controller
 {
@@ -38,7 +39,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-
         try {
             $validateData = $request->validate([
                 'name' =>  'required|string|max:50',
@@ -60,13 +60,10 @@ class ProductController extends Controller
             return false;
         }
 
-
-
-
         //Pro::create($request->all());  // decestrcuturacion
+        Alert::success('Éxito','El producto se creo con éxito');
 
-
-        return redirect()->route('products.create');
+        return redirect()->route('products.index');
 
 
     }
@@ -107,9 +104,20 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request,$id)
     {
-        dd($request->all());
+        $prod = Pro::find($id);
+        //$prod2 = Pro::where('id',$id)->get();
+        //dump($prod);
+        //dd($prod2);
+
+        $prod->name = $request->name;
+        $prod->description = $request->description;
+        $prod->price = $request->price;
+        $prod->stock = $request->stock;
+        $prod->save();
+        Alert::success('Éxito','El producto se actualizo con éxito');
+        return redirect()->route('products.index');
     }
 
     /**
@@ -120,6 +128,9 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        dd("entra a destroy $id");
+        $prod = Pro::find($id);
+        $prod->delete();
+        Alert::success('Éxito','El producto se elimino con éxito');
+        return redirect()->route('products.index');
     }
 }
