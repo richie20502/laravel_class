@@ -41,24 +41,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
 Route::middleware(['auth'])->group(function(){
     Route::get('products/list', [ProductController::class, 'index'])->name('products.index');
     Route::get('product/create', [ProductController::class, 'create'])->name('products.create');
     Route::post('products/guardar',[ProductController::class, 'store'])->name('products.store');
     Route::post('/products/{id}/update',[ProductController::class, 'update'])->name('products.update');
+    Route::get('/products/{id}/delete', [ProductController::class, 'destroy'])->name('products.delete');
 });
 
 Route::middleware(['validar_rol'])->group(function(){

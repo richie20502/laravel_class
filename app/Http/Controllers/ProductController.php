@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product as Pro;
 use App\Models\Post;
 use App\Models\Comment;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProductController extends Controller
 {
@@ -66,8 +67,8 @@ class ProductController extends Controller
 
         //Pro::create($request->all());  // decestrcuturacion
 
-
-        return redirect()->route('products.create');
+        Alert::success('Éxito', 'El producto se creó con éxito.');
+        return redirect()->route('products.index');
 
 
     }
@@ -130,7 +131,10 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        dd("entra a destroy $id");
+        $prod = Pro::find($id);
+        $prod->delete();
+        Alert::success('Éxito', "El producto se elimino con Éxito");
+        return redirect()->route('products.index');
     }
 
 
