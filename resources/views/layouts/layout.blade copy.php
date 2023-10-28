@@ -39,17 +39,11 @@
                 </div>
             </div>
         </nav>
+
         @include('sweetalert::alert')
         <main class="py-4">
             @yield('content')
         </main>
     </div>
-    <!-- Pie de página -->
-    <footer class="bg-dark text-white text-center py-4">
-        <div class="container">
-            <p>&copy; 2023 Tu Tienda en Línea</p>
-        </div>
-    </footer>
-
 </body>
 </html>
