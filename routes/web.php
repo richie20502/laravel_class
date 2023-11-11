@@ -29,7 +29,19 @@ Route::get('/search_products', [HomeController::class, 'search'])->name('product
 
 
 Route::get('/cart', 'CartController@index')->name('cart.index');
-Route::post('/cart/add', 'CartController@addItem')->name('cart.addItem');
+Route::post('/cart/add/{product}', 'CartController@add')->name('cart.add');
+Route::post('/cart/checkout', 'CartController@checkout')->name('cart.checkout');
+
+
+
+Route::get('products/list', [ProductController::class, 'index'])->name('products.index');
+Route::get('product/create', [ProductController::class, 'create'])->name('products.create');
+Route::post('products/guardar',[ProductController::class, 'store'])->name('products.store');
+Route::post('/products/{id}/update',[ProductController::class, 'update'])->name('products.update');
+Route::get('/products/{id}/delete',[ProductController::class, 'destroy'])->name('products.delete');
+
+Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::get('/products/{id}/destroy', [ProductController::class, 'destroy'])->name('products.destroy');
 
 
 
