@@ -197,6 +197,7 @@ return [
 
         Barryvdh\Debugbar\ServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        L5Swagger\L5SwaggerServiceProvider::class,
 
     ],
 

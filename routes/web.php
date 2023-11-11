@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +26,10 @@ Route::get('/products', [HomeController::class, 'home2'])->name('pag2');
 
 
 Route::get('/search_products', [HomeController::class, 'search'])->name('products.searchs');
+
+
+Route::get('/cart', 'CartController@index')->name('cart.index');
+Route::post('/cart/add', 'CartController@addItem')->name('cart.addItem');
 
 
 

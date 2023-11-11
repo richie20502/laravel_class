@@ -1,0 +1,65 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API shopping",
+        "description": "esta es el api de nuetsra tienda online",
+        "contact": {
+            "name": "Ricardo Lugo Recillas",
+            "email": "richie@richie.com"
+        },
+        "license": {
+            "name": "Licencia",
+            "url": "Apache"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Mostrar productos",
+                "operationId": "2760258c99a50d411ace5e753851cc1e",
+                "responses": {
+                    "200": {
+                        "description": "Mostrar todos los productos."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/api/products/{id}": {
+            "get": {
+                "summary": "Obtener un producto por identificador",
+                "description": "Obtiene un producto específico según su identificador.",
+                "operationId": "f0fdae6025a4fc6364b5a1fa768cd1cf",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identificador único del producto",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Producto obtenido exitosamente."
+                    },
+                    "404": {
+                        "description": "No se encontró el producto."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        }
+    }
+}

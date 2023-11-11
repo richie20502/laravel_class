@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product;
+use App\Models\Products;
 
 
 class HomeController extends Controller
@@ -32,13 +32,13 @@ class HomeController extends Controller
 
 
     public function home(){
-        $products = Product::paginate(12);
+        $products = Products::paginate(12);
         return view('welcome', compact('products'));
     }
 
 
     public function home2(Request $request){
-        $products = Product::paginate(12);
+        $products = Products::paginate(12);
 
         if ($request->ajax()) {
             return view('paginate.pagination', compact('products'));
@@ -52,7 +52,7 @@ class HomeController extends Controller
 
         $searchQuery = $request->input('search');
 
-        $products = Product::where('name', 'like', '%' . $searchQuery . '%')
+        $products = Products::where('name', 'like', '%' . $searchQuery . '%')
             ->get(); // Cambia el número 10 por la cantidad de resultados por página que desees
 
         return view('paginate.search_result', ['products' => $products]);
