@@ -1,0 +1,58 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "esto es un api",
+        "description": "descripcion a al api",
+        "contact": {
+            "name": "Tu nombre",
+            "email": "tucorrer@correo.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Mostrar productos",
+                "operationId": "ba200e07b9a266ea70688d7765f1836a",
+                "responses": {
+                    "200": {
+                        "description": "Mostrar todos los productos."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/api/products/{id}": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Obtener un producto por identificador",
+                "description": "Obtiene un producto específico según su identificador.",
+                "operationId": "f0fdae6025a4fc6364b5a1fa768cd1cf",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identificador único del producto",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Producto obtenido exitosamente."
+                    }
+                }
+            }
+        }
+    }
+}
