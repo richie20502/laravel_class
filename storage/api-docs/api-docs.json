@@ -1,0 +1,58 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API shopping",
+        "description": "esta es el api de nuetsra tienda online",
+        "contact": {
+            "name": "Ricardo Lugo Recillas",
+            "email": "richie@richie.com"
+        },
+        "license": {
+            "name": "Licencia",
+            "url": "Apache"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "operationId": "ba200e07b9a266ea70688d7765f1836a",
+                "responses": {
+                    "200": {
+                        "description": "mostrar todos los productos"
+                    }
+                }
+            }
+        },
+        "/api/products/{id}": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Obtener un producto por identificador",
+                "description": "Obtiene un producto específico según su identificador.",
+                "operationId": "f0fdae6025a4fc6364b5a1fa768cd1cf",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identificador único del producto",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Producto obtenido exitosamente."
+                    }
+                }
+            }
+        }
+    }
+}

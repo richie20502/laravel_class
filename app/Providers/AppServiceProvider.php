@@ -15,6 +15,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         Paginator::useBootstrap();
+        $this->app->register(\L5Swagger\L5SwaggerServiceProvider::class);
     }
 
     /**

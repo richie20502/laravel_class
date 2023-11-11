@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product as Pro;
+use App\Models\Products as Pro;
 use App\Models\Post;
 use App\Models\Comment;
 use RealRashid\SweetAlert\Facades\Alert;
