@@ -48,6 +48,7 @@ class ApiProductController extends Controller
  *     path="/api/products/{id}",
  *     summary="Obtener un producto por identificador",
  *     description="Obtiene un producto específico según su identificador.",
+ *     tags={"Products"},
  *     @OA\Parameter(
  *         name="id",
  *         in="path",

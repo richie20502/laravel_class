@@ -33,6 +33,9 @@
         },
         "/api/products/{id}": {
             "get": {
+                "tags": [
+                    "Products"
+                ],
                 "summary": "Obtener un producto por identificador",
                 "description": "Obtiene un producto específico según su identificador.",
                 "operationId": "f0fdae6025a4fc6364b5a1fa768cd1cf",
