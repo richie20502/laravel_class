@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('content')
 <header class="py-5 text-center">
-    <h1> Bienvennido a mi tiendita PUTO</h1>
+    <h1> Bienvennido a mi tiendita PUTOTES</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, atque. Eos impedit quam odio labore libero sequi dicta incidunt iure dolor! Omnis perspiciatis commodi quas magni animi nam saepe et!</p>
     <a href="#" class="btn btn-primary" id="search-toggle-btn">
         Explorar Productos
