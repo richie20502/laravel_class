@@ -29,6 +29,7 @@
                             <div class="card-body">
                                 <h5>{{$product->name }}</h5>
                                 <p> {{ truncateText($product->description,30) }} </p>
+                                <a href="#"  data-identificador="{{ $product->id }}" class="btn btn-primary add_cart">Agregar al Carrito</a>
                             </div>
                         </div>
                     </div>
@@ -56,6 +57,22 @@
             }else{
                 searchForm.css('display', 'none')
             }
+        });
+
+
+        $('.add_cart').click(function(){
+            var prod = $(this).data('identificador');
+            $.ajax({
+                url:'{{ route('cart.add') }}',
+                method:'GET',
+                data:{
+                    product_id: prod
+                }, success : function(data){
+                    console.log(data);
+                }, erros: function(error){
+                    console.log(error);
+                }
+            });
         });
 
     });
