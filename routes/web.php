@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CartItemController;
 
 
 /*
@@ -88,4 +89,7 @@ Route::middleware(['validar_rol'])->group(function(){
 Route::get('error/403', function(){
     return view('errors.403');
 });
+
+Route::get('products/add/cart', [CartItemController::class, 'add_cart'])->name('cart.add');
+
 #

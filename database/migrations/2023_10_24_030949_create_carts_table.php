@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('carts', function (Blueprint $table) {
-            $table->integer('id');
-            $table->unsignedBigInteger('user_id'); // Si estás autenticando usuarios
+            $table->id();
+            $table->integer('user_id'); // Si estás autenticando usuarios
             $table->timestamps();
         });
     }

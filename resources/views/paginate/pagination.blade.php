@@ -8,7 +8,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $product->name }}</h5>
                             <p class="card-text">{{ truncateText($product->description, 25) }}</p>
-                            <a href="#" class="btn btn-primary">Agregar al Carrito</a>
+                            <a href="#"  data-identificador="{{ $product->id }}" class="btn btn-primary add_cart">Agregar al Carrito</a>
                         </div>
                     </div>
                 </div>
@@ -20,3 +20,29 @@
 <div class="d-flex justify-content-center">
     {{ $products->links() }}
 </div>
+
+<script>
+    $(document).ready(function (){
+        $('.add_cart').click(function(){
+            $data = $(this).data('identificador');
+            alert($data);
+
+            $.ajax({
+                url: '{{ route('cart.add') }}',
+                method:'GET',
+                data:{
+                    product_id : $data
+                },
+                success: function(data){
+                    alert('se realizo correctamente');
+                },
+                erros: function(error){
+                    console.log('AQUI ');
+                }
+            });
+
+
+        });
+    });
+
+</script>
